@@ -1,5 +1,6 @@
 ---
 import { SEO } from "astro-seo";
+import { AstroFont } from "astro-font";
 import Logo from '@assets/logo.svg';
 import Banner from '@assets/banner.webp';
 
@@ -55,6 +56,27 @@ const description: string = "Diffusion en direct de la voiture de course de Kevi
 				],
 			}}
 		/>
+		<AstroFont
+			config={[
+			{
+				name: "Inter",
+				src: [
+					{
+						style: "normal",
+						path: "./public/font/Inter.ttf"
+					},
+					{
+						style: "italic",
+						path: "./public/font/Inter-Italic.ttf"
+					},
+				],
+				preload: true,
+				display: "swap",
+				selector: "body",
+				fallback: "sans-serif",
+			},
+			]}
+		/>
 	</head>
 	<body>
 		<slot />
@@ -69,9 +91,12 @@ const description: string = "Diffusion en direct de la voiture de course de Kevi
 	}
 
 	html {
-		font-family: Inter, Helvetica, Arial, sans-serif;
+		font-family: "Inter", Helvetica, Arial, sans-serif;
 		-webkit-font-smoothing: antialiased;
 		font-synthesis: none;
+		font-optical-sizing: auto;
+		font-style: normal;
+		font-weight: 400;
 		-moz-osx-font-smoothing: grayscale;
 		text-rendering: optimizeLegibility;
 		-webkit-text-size-adjust: 100%;
