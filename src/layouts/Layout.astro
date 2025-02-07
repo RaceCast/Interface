@@ -1,12 +1,60 @@
+---
+import { SEO } from "astro-seo";
+import Logo from '@assets/logo.svg';
+import Banner from '@assets/banner.webp';
+
+const title: string = "RaceCast";
+const description: string = "Diffusion en direct de la voiture de course de Kevin CORBIER.";
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="sitemap" href="/sitemap-index.xml" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<SEO
+			title={title}
+			description={description}
+			charset="UTF-8"
+			openGraph={{
+				basic: {
+					title: title,
+					type: "website",
+					url: Astro.url.origin,
+					image: Banner.src
+				},
+				optional: {
+					locale: "fr_FR",
+				},
+				image: {
+					alt: `${title} banner`,
+					url: Banner.src,
+					type: "image/webp"
+				}
+			}}
+			twitter={{
+				creator: "@Minarox_",
+				card: "summary_large_image",
+				site: Astro.url.origin,
+				title: title,
+				description: description,
+				image: Banner.src,
+				imageAlt: `${title} banner`,
+			}}
+			extend={{
+				link: [
+				{ rel: "icon", type: "image/svg+xml", href: Logo.src },
+				{ rel: "sitemap", href: "/sitemap-index.xml" },
+				],
+				meta: [
+				{ name: "viewport", content: "width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" },
+				{ name: "theme-color", content: "#242424" },
+				{ name: "keywords", content: "Stream, Rallye, Direct, Compétition, Kévin, Corbier, Voiture, Course, RaceCast, Race, Classement, Spéciale" },
+				{ name: "robots", content: "index, follow" },
+				{ name: "language", content: "French" },
+				{ name: "author", content: "Minarox" }
+				],
+			}}
+		/>
 	</head>
 	<body>
 		<slot />
@@ -14,10 +62,19 @@
 </html>
 
 <style>
-	html,
-	body {
+	* {
+		box-sizing: border-box;
 		margin: 0;
-		width: 100%;
-		height: 100%;
+		padding: 0;
+	}
+
+	html {
+		font-family: Inter, Helvetica, Arial, sans-serif;
+		-webkit-font-smoothing: antialiased;
+		font-synthesis: none;
+		-moz-osx-font-smoothing: grayscale;
+		text-rendering: optimizeLegibility;
+		-webkit-text-size-adjust: 100%;
+		background-color: #242424;
 	}
 </style>

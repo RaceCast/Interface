@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1461 1488">
+    <style>
+        rect {
+            width: 318px;
+            height: 900px;
+            rx: 159px;
+            fill: #FFF;
+            filter: drop-shadow(0 0 42px rgba(0, 0, 0, 0.7));
+        }
+    </style>
+    <rect transform="translate(996 149)" />
+    <rect transform="translate(572 440)" />
+    <rect transform="translate(149 149)" />
+</svg>
