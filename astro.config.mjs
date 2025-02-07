@@ -4,9 +4,11 @@ import sitemap from '@astrojs/sitemap';
 import metaTags from 'astro-meta-tags';
 import icon from 'astro-icon';
 import compressor from 'astro-compressor';
+import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
     site: 'https://racecast.minarox.fr',
-    integrations: [sitemap(), metaTags(), icon(), compressor()]
+    integrations: [sitemap(), metaTags(), icon(), compressor()],
+    adapter: cloudflare()
 });
